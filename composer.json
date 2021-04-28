@@ -1,0 +1,19 @@
+{
+    "name": "codeex/role_assignment",
+    "description": "Roles, resources and permissions",
+    "type": "metapackage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafik Rushanian",
+            "email": "rafik@innorise.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Codeex\\RoleAssignment\\": "src/"
+        }
+    }
+}
