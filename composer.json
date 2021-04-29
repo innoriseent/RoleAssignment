@@ -15,11 +15,5 @@
         "psr-4": {
             "Codeex\\RoleAssignment\\": "src/"
         }
-    },
-    "repositories": [
-    {
-        "type": "vcs",
-        "url":  "git@bitbucket.org:voneapp/module_test.git"
     }
-]
 }
