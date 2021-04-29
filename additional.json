@@ -1,0 +1,16 @@
+{
+    "name": "codeex/role_assignment",
+    "description": "Roles, resources and permissions",
+    "type": "module",
+    "authors": [
+        {
+            "name": "Rafik Rushanian",
+            "email": "rafik@innorise.com"
+        }
+    ],
+    "namespace": "Codeex\\RoleAssignment\\",
+    "provider": {
+        "alias": "role_assignment",
+        "class": "RoleAssignmentServiceProvider"
+    }
+}
