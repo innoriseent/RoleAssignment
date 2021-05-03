@@ -15,6 +15,10 @@ class CreateUserResourcesAccessesTable extends Migration
     {
         Schema::create('user_resources_accesses', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('role_code');
+            $table->string('resource_code');
+            $table->jsonb('rules');
             $table->timestamps();
         });
     }

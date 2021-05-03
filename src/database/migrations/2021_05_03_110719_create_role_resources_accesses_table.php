@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoleResourceesAccessesTable extends Migration
+class CreateRoleResourcesAccessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,9 @@ class CreateRoleResourceesAccessesTable extends Migration
     {
         Schema::create('role_resourcees_accesses', function (Blueprint $table) {
             $table->id();
+            $table->string('role_code');
+            $table->string('resource_code');
+            $table->jsonb('rules');
             $table->timestamps();
         });
     }

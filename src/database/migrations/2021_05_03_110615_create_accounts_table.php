@@ -15,6 +15,10 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->integer('msp_id');
+            $table->string('name');
+            $table->string('email');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

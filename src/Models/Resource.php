@@ -1,6 +1,6 @@
 <?php
 
-namespace Codeex\RoleAssignment;
+namespace Codeex\RoleAssignment\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

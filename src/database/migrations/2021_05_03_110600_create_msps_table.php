@@ -15,6 +15,10 @@ class CreateMspsTable extends Migration
     {
         Schema::create('msps', function (Blueprint $table) {
             $table->id();
+            $table->text('logo')->nullable();
+            $table->string('domain');
+            $table->string('email');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
