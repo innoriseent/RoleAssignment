@@ -14,15 +14,15 @@ use Codeex\RoleAssignment\Models\UserResourcesAccess;
 class Insider extends CodeexInsider
 {
 
-    public function runSeeds()
+    static public function runSeeds()
     {
-        $this->rolesSeeder();
-        $this->resourcesSeeder();
-        $this->rolesPermissionsSeeder();
-        $this->userPermissionsSeeder();
+        static::rolesSeeder();
+        static::resourcesSeeder();
+        static::rolesPermissionsSeeder();
+        static::userPermissionsSeeder();
     }
 
-    protected function rolesSeeder(){
+    static protected function rolesSeeder(){
         Role::create([
             'role_code' => 'adm',
             'name' => 'Administrator',
@@ -36,7 +36,7 @@ class Insider extends CodeexInsider
         ]);
     }
 
-    protected function resourcesSeeder(){
+    static protected function resourcesSeeder(){
         Resource::create([
             'resource_code' => Resource::$resource_code,
             'name' => 'Resources',
@@ -59,7 +59,7 @@ class Insider extends CodeexInsider
         ]);
     }
 
-    protected function rolesPermissionsSeeder(){
+    static protected function rolesPermissionsSeeder(){
         RoleResourcesAccess::create([
             'role_code' => 'adm',
             'resource_code' => Resource::$resource_code,
@@ -82,7 +82,7 @@ class Insider extends CodeexInsider
         ]);
     }
 
-    protected function userPermissionsSeeder(){
+    static protected function userPermissionsSeeder(){
         $existingUsers = User::all();
         $existingResources = Resource::all();
         foreach ($existingUsers as $existingUser) {
