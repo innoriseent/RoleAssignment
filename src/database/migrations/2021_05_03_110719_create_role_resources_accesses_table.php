@@ -13,7 +13,7 @@ class CreateRoleResourcesAccessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_resourcees_accesses', function (Blueprint $table) {
+        Schema::create('role_resources_accesses', function (Blueprint $table) {
             $table->id();
             $table->string('role_code');
             $table->string('resource_code');

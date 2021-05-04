@@ -2,6 +2,9 @@
 
 namespace Codeex\RoleAssignment;
 
+use Codeex\RoleAssignment\Models\Resource;
+use Codeex\RoleAssignment\Policies\ResourcePolicy;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class RoleAssignmentServiceProvider extends ServiceProvider
@@ -14,6 +17,9 @@ class RoleAssignmentServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__."/routes/api.php");
+
+        // Policies
+        Gate::policy(Resource::class, ResourcePolicy::class);
     }
 
     /**
@@ -23,6 +29,5 @@ class RoleAssignmentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 }
