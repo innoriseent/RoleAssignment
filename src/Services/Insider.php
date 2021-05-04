@@ -91,7 +91,7 @@ class Insider extends CodeexInsider
                     UserResourcesAccess::create([
                         'user_id' => $existingUser->id,
                         'role_code' => $existingUser->role_code,
-                        'resource_code' => $existingResource->role_code,
+                        'resource_code' => $existingResource->resource_code,
                         'rules' => json_encode([
                             'c' => true,
                             'r' => true,
@@ -105,7 +105,7 @@ class Insider extends CodeexInsider
                     UserResourcesAccess::create([
                         'user_id' => $existingUser->id,
                         'role_code' => $existingUser->role_code,
-                        'resource_code' => $existingResource->role_code,
+                        'resource_code' => $existingResource->resource_code,
                         'rules' => json_encode([
                             'c' => false,
                             'r' => false,
