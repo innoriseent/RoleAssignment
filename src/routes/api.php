@@ -2,8 +2,12 @@
 
 $router = app()->router;
 
-$router->group(['prefix' => 'v1', 'middleware' => 'auth', 'namespace' => 'Codeex\\RoleAssignment\\Http\\Controllers'], function () use ($router) {
-    $router->group(['prefix' => 'ra'], function () use ($router) {
+$router->group(['prefix' => 'v1', 'namespace' => 'Codeex\\RoleAssignment\\Http\\Controllers'], function () use ($router) {
+    $router->get('ra/initial', function (){
+        dd("Start app initialization");
+    });
+
+    $router->group(['prefix' => 'ra', 'middleware' => 'auth'], function () use ($router) {
         $router->group(['prefix' => 'roles'], function () use ($router) {
             $router->get('/', 'RoleController@index');
         });

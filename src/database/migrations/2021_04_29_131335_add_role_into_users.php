@@ -15,6 +15,8 @@ class AddRoleIntoUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string("role_code")->default('user');
+            $table->bigInteger("msp_id")->default(0);
+            $table->bigInteger("account_id")->default(0);
         });
     }
 

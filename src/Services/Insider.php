@@ -6,6 +6,7 @@ namespace Codeex\RoleAssignment\Services;
 
 use App\Lib\CodeexInsider;
 use App\Models\User;
+use Codeex\RoleAssignment\Models\Msp;
 use Codeex\RoleAssignment\Models\Resource;
 use Codeex\RoleAssignment\Models\Role;
 use Codeex\RoleAssignment\Models\RoleResourcesAccess;
@@ -20,6 +21,8 @@ class Insider extends CodeexInsider
         $this->resourcesSeeder();
         $this->rolesPermissionsSeeder();
         $this->userPermissionsSeeder();
+
+        $this->seedFirstMsp();
     }
 
     protected function rolesSeeder(){
@@ -60,6 +63,7 @@ class Insider extends CodeexInsider
     }
 
     protected function rolesPermissionsSeeder(){
+        // Give access to administrators to manipulate with resources
         RoleResourcesAccess::create([
             'role_code' => 'adm',
             'resource_code' => Resource::$resource_code,
@@ -70,6 +74,29 @@ class Insider extends CodeexInsider
                 'd' => true
             ])
         ]);
+        // Enable access to administrators to manipulate with role's permissions
+        RoleResourcesAccess::create([
+            'role_code' => 'adm',
+            'resource_code' => RoleResourcesAccess::$resource_code,
+            'rules' => json_encode([
+                'c' => true,
+                'r' => true,
+                'u' => true,
+                'd' => true
+            ])
+        ]);
+        // Enable access to administrators to manipulate with users permissions
+        RoleResourcesAccess::create([
+            'role_code' => 'adm',
+            'resource_code' => UserResourcesAccess::$resource_code,
+            'rules' => json_encode([
+                'c' => true,
+                'r' => true,
+                'u' => true,
+                'd' => true
+            ])
+        ]);
+
         RoleResourcesAccess::create([
             'role_code' => 'user',
             'resource_code' => Resource::$resource_code,
@@ -116,5 +143,13 @@ class Insider extends CodeexInsider
                 }
             }
         }
+    }
+
+    protected function seedFirstMsp(){
+        Msp::create([
+            'logo' => 'https://media-exp1.licdn.com/dms/image/C4D0BAQESYUFXqIblnw/company-logo_200_200/0/1612773084069?e=1628121600&v=beta&t=v9gf5cKsuVHSgeSVVBo35laNkKQKmU_xpdLsrUly5RY',
+            'domain' => 'codeex',
+            'email' => 'rafik.rushanian@gmail.com'
+        ]);
     }
 }
