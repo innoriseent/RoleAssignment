@@ -96,6 +96,28 @@ class Insider extends CodeexInsider
                 'd' => true
             ])
         ]);
+        // Enable access to administrators to manipulate with msps
+        RoleResourcesAccess::create([
+            'role_code' => 'adm',
+            'resource_code' => Msp::$resource_code,
+            'rules' => json_encode([
+                'c' => true,
+                'r' => true,
+                'u' => true,
+                'd' => true
+            ])
+        ]);
+        // Enable access to administrator to manipulate with accounts
+        RoleResourcesAccess::create([
+            'role_code' => 'adm',
+            'resource_code' => Msp::$resource_code,
+            'rules' => json_encode([
+                'c' => true,
+                'r' => true,
+                'u' => true,
+                'd' => true
+            ])
+        ]);
 
         RoleResourcesAccess::create([
             'role_code' => 'user',
