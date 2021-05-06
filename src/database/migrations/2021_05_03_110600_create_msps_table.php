@@ -18,6 +18,7 @@ class CreateMspsTable extends Migration
             $table->text('logo')->nullable();
             $table->string('domain');
             $table->string('email');
+            $table->string('name');
             $table->softDeletes();
             $table->timestamps();
         });

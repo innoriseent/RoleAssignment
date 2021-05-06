@@ -168,10 +168,23 @@ class Insider extends CodeexInsider
     }
 
     protected function seedFirstMsp(){
+        if(env('DEFAULT_DOMAIN') &&
+            env('DEFAULT_LOGO') &&
+            env('DEFAULT_EMAIL') &&
+            env('DEFAULT_NAME')
+        ){
+            Msp::create([
+                'logo' => env('DEFAULT_LOGO'),
+                'domain' => env('DEFAULT_DOMAIN'),
+                'email' => env('DEFAULT_EMAIL'),
+                'name' => env('DEFAULT_NAME')
+            ]);
+        }
         Msp::create([
             'logo' => 'https://media-exp1.licdn.com/dms/image/C4D0BAQESYUFXqIblnw/company-logo_200_200/0/1612773084069?e=1628121600&v=beta&t=v9gf5cKsuVHSgeSVVBo35laNkKQKmU_xpdLsrUly5RY',
             'domain' => 'codeex',
-            'email' => 'rafik.rushanian@gmail.com'
+            'email' => 'rafik.rushanian@gmail.com',
+            'name' => 'Codeex LLC'
         ]);
     }
 }

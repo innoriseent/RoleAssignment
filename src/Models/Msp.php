@@ -11,8 +11,10 @@ class Msp extends Model
 
     static public $resource_code = 'msp';
 
+    protected $hidden = ['id'];
+
     protected $fillable = [
-        'logo', 'domain', 'email'
+        'logo', 'domain', 'email', 'name'
     ];
 
     public static function boot()
