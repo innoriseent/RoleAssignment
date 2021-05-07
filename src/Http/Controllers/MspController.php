@@ -8,14 +8,15 @@ use Codeex\RoleAssignment\Http\Requests\Resources\MspCreateRequest;
 use Codeex\RoleAssignment\Http\Requests\Resources\ResourceRequest;
 use Codeex\RoleAssignment\Http\Requests\Roles\RoleCreateRequest;
 use Codeex\RoleAssignment\Http\Requests\Roles\RoleRequest;
+use Codeex\RoleAssignment\Models\Msp;
 use Codeex\RoleAssignment\Models\Resource;
 use Codeex\RoleAssignment\Models\Role;
 use Illuminate\Http\Request;
 
-class ResourceController extends Controller
+class MspController extends Controller
 {
     public function index(Request $request){
-        return response()->json(Resource::all());
+        return response()->json(Msp::all());
     }
 
     public function get(Request $request){

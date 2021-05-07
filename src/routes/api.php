@@ -34,6 +34,21 @@ $router->group(['prefix' => 'v1', 'namespace' => 'Codeex\\RoleAssignment\\Http\\
             });
 
         });
+        $router->group(['prefix' => 'msps'], function () use ($router) {
+            $router->get('/', 'ResourceController@index');
+        });
+        $router->group(['prefix' => 'msp'], function () use ($router) {
+            $router->get('/', 'MspController@get');
+            $router->post('/', 'MspController@create');
+            $router->put('/', function () {
+                dd("Start updating role");
+            });
+            $router->delete('/{role_code}', function () {
+                dd("Start deleting role");
+            });
+
+        });
+
     });
 });
 
